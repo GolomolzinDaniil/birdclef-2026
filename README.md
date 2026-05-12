@@ -7,7 +7,6 @@
 ```bash
 kaggle competitions download -c birdclef-2026
 ```
-P.S кажется что виснет, но это не так. 15GB все-таки. Смотреть htop
 
 ## Разархивировать
 ```bash
