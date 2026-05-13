@@ -1,7 +1,11 @@
 from torch.utils.data import Dataset
 import torchaudio.transforms as T
+import torch.nn.functional as F
+import torch.nn as nn
+import torchaudio
 import soundfile as sf
 import torch
+import timm
 from abc import ABC, abstractmethod
 import os
 from os import listdir
@@ -9,8 +13,10 @@ from os.path import join
 from sklearn.model_selection import train_test_split
 import numpy as np
 import numpy.random as npr
+import random
+import torch.distributed as dist
 
-
+from collections import defaultdict
 
 
 
@@ -43,7 +49,7 @@ class Data(Dataset, ABC):
             hop_length=512,
             n_mels=128,
             f_min=8_000,
-            f_max=sr // 2
+            f_max=16_000
         )
 
         with open(r'data/sample_submission.csv', 'r', encoding='utf-8') as f:            
@@ -69,12 +75,23 @@ class Data(Dataset, ABC):
     def _get_sps(self, y):
 
         with torch.no_grad():
+            # нижние + верхние частоты
             mel_low = self._to_mel_low(y)
             mel_high = self._to_mel_high(y)
 
+            # первые производные
+            delta_low = self._scaler(torchaudio.functional.compute_deltas(mel_low))
+            delta_high = self._scaler(torchaudio.functional.compute_deltas(mel_high))
+
+            # # вторые производные
+            # delta2_low = torchaudio.functional.compute_deltas(delta_low)
+            # delta2_high = torchaudio.functional.compute_deltas(delta_high)
+
         stacked = torch.stack([
             self._scaler(mel_low),
-            self._scaler(mel_high)
+            self._scaler(mel_high),
+            delta_low,
+            delta_high
         ], dim=0)
         return stacked.float()
 
@@ -84,8 +101,6 @@ class Data(Dataset, ABC):
 
     def __len__(self):
         return len(self._samples)
-
-
 
 
 
@@ -103,10 +118,7 @@ class Data1(Data):
 
         self._num_segments = num_segments
 
-        # self._train_audio = r'/kaggle/input/competitions/birdclef-2026/train_audio'
         self._train_audio = r'data/train_audio'
-        # self._cache_path = r'/kaggle/working/cache'
-        self._cache_path = r'cache'
     
         self._segment_len = int(duration * sr)
         self._stride = int(stride * sr)
@@ -117,11 +129,30 @@ class Data1(Data):
             cls_path = join(self._train_audio, cls)
             cls_audios = listdir(cls_path)
             for audio in cls_audios:
-
                 self._samples.append((
                     join(cls_path, audio),
                     self._train_cls2idx[cls]
                 ))
+
+            # защита от дисбаланса классов
+            num_audio = len(cls_audios)
+            # кол-во дублирования
+            if num_audio <= 5:
+                repeat = 20
+            elif num_audio <= 10:
+                repeat = 10
+            elif num_audio <= 20:
+                repeat = 5
+            elif num_audio <= 50:
+                repeat = 2
+            else:
+                repeat = 1
+            
+            # дубликаты
+            self._samples.extend([
+                (join(cls_path, audio), self._train_cls2idx[cls])
+                for audio in npr.choice(cls_audios, size=repeat*num_audio, replace=True)
+            ])
 
         train_samples, valid_samples = train_test_split(
             self._samples,
@@ -130,6 +161,9 @@ class Data1(Data):
         )
         self._samples = train_samples if self._is_train else valid_samples
 
+        self.cls_idx = defaultdict(list)
+        for index, (_, label) in enumerate(self._samples):
+            self.cls_idx[label].append(index)
 
     def _make_slides(self, y):
 
@@ -137,6 +171,22 @@ class Data1(Data):
         positions = list(range(0, max(1, len(y) - self._segment_len + 1), self._stride))
 
         if self._is_train:
+
+            # аугментация
+            # 1 громкость
+            if npr.rand() < 0.3:
+                y = y * npr.uniform(0.7, 1.3)
+            # 2 случайный шум
+            if npr.rand() < 0.3:
+                y = y + torch.randn_like(y) * 3e-3
+            # 3 сдвиг. Чтобы cnn не привыкала
+            if npr.rand() < 0.5:
+                shift = np.random.randint(0, len(y)//10)
+                y = torch.roll(y, shift)
+
+            # обрезка лишнего
+            y = y.clamp(-1, 1)
+
             is_replace = len(positions) < self._num_segments
             positions = np.sort(npr.choice(positions, self._num_segments, replace=is_replace))
         else:
@@ -170,6 +220,57 @@ class Data1(Data):
         return self._make_slides(y), torch.tensor(label, dtype=torch.long)
 
 
+# class BatchSampler(torch.utils.data.Sampler):
+
+#     def __init__(
+#             self,
+#             cls_idx,
+#             num_cls,
+#             num_samples,
+#             steps_per_epoch
+#             ):
+#         self.cls_idx = cls_idx
+#         self.classes = list(cls_idx.keys())
+
+#         self.num_cls = num_cls
+#         self.num_samples = num_samples
+#         self.steps_per_epoch = steps_per_epoch
+
+#         self.batch_size = num_cls * num_samples
+
+#         if dist.is_available() and dist.is_initialized():
+#             self.rank = dist.get_rank()
+#             self.world_size = dist.get_world_size()
+#         else:
+#             self.rank = 0
+#             self.world_size = 1
+
+#         self.epoch = 0
+
+#     def set_epoch(self, epoch):
+#         self.epoch = epoch
+
+#     def __iter__(self):
+#         seed = self.epoch + self.rank
+#         npr.seed(seed)
+#         random.seed(seed)
+        
+
+#         for _ in range(self.steps_per_epoch):
+
+#             batch = []
+
+#             chosen_classes = random.sample(self.classes, self.num_cls)
+
+#             for cls in chosen_classes:
+#                 idxs = self.cls_idx[cls]
+#                 batch.extend(random.choices(idxs, k=self.num_samples))
+
+#             batch = batch[:self.batch_size]
+#             yield batch
+        
+#     def __len__(self):
+#         return self.steps_per_epoch
 
 
 
@@ -244,3 +345,22 @@ class Data2(Data):
             
         return self._make_slides(y), label.float()
 
+
+class BirdModel(nn.Module):
+
+    def __init__(self, norma: bool):
+        super().__init__()
+        self._norma = norma
+
+        self._model = timm.create_model(
+            'efficientnet_b3',
+            pretrained=True,
+            in_chans=4,
+            num_classes=0
+        )
+        self._linear = nn.Linear(self._model.num_features, 256) # type: ignore
+
+    def forward(self, x):
+        x = self._model(x)
+        x = self._linear(x)
+        return F.normalize(x) if self._norma else x

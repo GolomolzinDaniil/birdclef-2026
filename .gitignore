@@ -3,3 +3,5 @@ data
 new_data
 __pycache__
 *.pth
+log
+*.zip
