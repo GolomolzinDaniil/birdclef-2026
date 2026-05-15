@@ -16,6 +16,7 @@ from pytorch_metric_learning import losses
 import numpy as np
 import numpy.random as npr
 from sklearn.model_selection import train_test_split
+from tqdm import tqdm
 
 from shared import Data1
 
@@ -65,7 +66,7 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
 green = "\033[92m"
 reset = "\033[0m"
 
-EPOCH = 10
+EPOCH = 20
 total_train, total_valid = len(train_dataset), len(valid_dataset)
 
 best_acc = -float('inf')
@@ -75,7 +76,7 @@ for epoch in range(EPOCH):
 
     # train
     train_loss = 0.0
-    for xb,yb in train_dataset:
+    for xb,yb in tqdm(train_dataset, desc='Train'):
         
         B, N, C, H, W = xb.shape
         x = xb.view(B*N, C, H, W).to(device, non_blocking=True)
@@ -99,7 +100,7 @@ for epoch in range(EPOCH):
     model.eval()
     valid_acc = 0.0
     with torch.no_grad():
-        for xb,yb in valid_dataset:
+        for xb,yb in tqdm(valid_dataset, desc='Valid'):
 
             B, N, C, H, W = xb.shape
             x = xb.view(B*N, C, H, W).to(device, non_blocking=True)

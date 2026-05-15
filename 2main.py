@@ -17,6 +17,7 @@ import numpy as np
 import numpy.random as npr
 from sklearn.metrics import f1_score
 from sklearn.model_selection import train_test_split
+from tqdm import tqdm
 
 from shared import Data2
 
@@ -59,7 +60,7 @@ green = "\033[92m"
 yellow = "\033[93m"
 reset = "\033[0m"
 
-EPOCH = 10
+EPOCH = 20
 total_train, total_valid = len(train_dataset), len(valid_dataset)
 
 best_metric = -float('inf')
@@ -68,7 +69,7 @@ for epoch in range(EPOCH):
 
     # train
     train_loss = 0.0
-    for xb,yb in train_dataset:
+    for xb,yb in tqdm(train_loader, desc='Train'):
 
         B, N, C, H, W = xb.shape
 
@@ -94,7 +95,7 @@ for epoch in range(EPOCH):
     targets, predicts = [], []
     with torch.no_grad():
 
-        for xb, yb in valid_dataset:
+        for xb,yb in tqdm(valid_loader, desc='Valid'):
 
             B, N, C, H, W = xb.shape
 

@@ -1,0 +1,196 @@
+2026-05-14 17:16:22,460 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b0.ns_jft_in1k)
+2026-05-14 17:16:22,595 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b0.ns_jft_in1k)
+2026-05-14 17:16:23,038 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b0.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 17:16:23,039 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 17:16:23,041 [INFO] [timm/tf_efficientnet_b0.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 17:16:23,057 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 17:16:23,068 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 17:16:23,119 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b0.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 17:16:23,122 [INFO] [timm/tf_efficientnet_b0.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 17:16:23,138 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 17:16:23,149 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 17:16:24,342 [INFO] Training started
+2026-05-14 17:16:24,343 [INFO] Epoch: [1  / 100]
+2026-05-14 17:20:15,863 [INFO] F1-micro: 0.0953, F1-macro: 0.0274, TrainLoss: 0.0384, ValidLoss: 0.0262, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:20:16,125 [INFO] Model 1 epoch's saved
+2026-05-14 17:20:16,126 [INFO] Model 1 epoch's saved
+2026-05-14 17:20:16,127 [INFO] Epoch: [2  / 100]
+2026-05-14 17:24:12,490 [INFO] F1-micro: 0.1522, F1-macro: 0.0862, TrainLoss: 0.0257, ValidLoss: 0.0246, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:24:12,762 [INFO] Model 2 epoch's saved
+2026-05-14 17:24:12,764 [INFO] Epoch: [3  / 100]
+2026-05-14 17:24:12,765 [INFO] Model 2 epoch's saved
+2026-05-14 17:28:11,697 [INFO] F1-micro: 0.1649, F1-macro: 0.1044, TrainLoss: 0.0244, ValidLoss: 0.0237, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:28:11,941 [INFO] Model 3 epoch's saved
+2026-05-14 17:28:11,943 [INFO] Epoch: [4  / 100]
+2026-05-14 17:28:11,945 [INFO] Model 3 epoch's saved
+2026-05-14 17:32:03,962 [INFO] F1-micro: 0.2147, F1-macro: 0.1526, TrainLoss: 0.0234, ValidLoss: 0.0227, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:32:04,215 [INFO] Model 4 epoch's saved
+2026-05-14 17:32:04,216 [INFO] Model 4 epoch's saved
+2026-05-14 17:32:04,217 [INFO] Epoch: [5  / 100]
+2026-05-14 17:36:13,864 [INFO] F1-micro: 0.1618, F1-macro: 0.1184, TrainLoss: 0.0228, ValidLoss: 0.0230, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:36:13,867 [INFO] Epoch: [6  / 100]
+2026-05-14 17:40:07,825 [INFO] F1-micro: 0.2263, F1-macro: 0.1667, TrainLoss: 0.0223, ValidLoss: 0.0220, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:40:08,070 [INFO] Model 6 epoch's saved
+2026-05-14 17:40:08,070 [INFO] Model 6 epoch's saved
+2026-05-14 17:40:08,072 [INFO] Epoch: [7  / 100]
+2026-05-14 17:43:59,060 [INFO] F1-micro: 0.2491, F1-macro: 0.1757, TrainLoss: 0.0220, ValidLoss: 0.0214, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:43:59,282 [INFO] Model 7 epoch's saved
+2026-05-14 17:43:59,283 [INFO] Model 7 epoch's saved
+2026-05-14 17:43:59,284 [INFO] Epoch: [8  / 100]
+2026-05-14 17:48:08,850 [INFO] F1-micro: 0.2436, F1-macro: 0.1856, TrainLoss: 0.0216, ValidLoss: 0.0214, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:48:09,099 [INFO] Model 8 epoch's saved
+2026-05-14 17:48:09,101 [INFO] Epoch: [9  / 100]
+2026-05-14 17:52:09,328 [INFO] F1-micro: 0.2665, F1-macro: 0.2048, TrainLoss: 0.0212, ValidLoss: 0.0210, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:52:09,557 [INFO] Model 9 epoch's saved
+2026-05-14 17:52:09,557 [INFO] Model 9 epoch's saved
+2026-05-14 17:52:09,558 [INFO] Epoch: [10 / 100]
+2026-05-14 17:56:14,436 [INFO] F1-micro: 0.2803, F1-macro: 0.2044, TrainLoss: 0.0210, ValidLoss: 0.0208, Threshold: 0.30, LR: 0.0003
+2026-05-14 17:56:14,438 [INFO] Epoch: [11 / 100]
+2026-05-14 18:00:18,507 [INFO] F1-micro: 0.2870, F1-macro: 0.2192, TrainLoss: 0.0208, ValidLoss: 0.0206, Threshold: 0.30, LR: 0.0003
+2026-05-14 18:00:18,746 [INFO] Model 11 epoch's saved
+2026-05-14 18:00:18,748 [INFO] Epoch: [12 / 100]
+2026-05-14 18:00:18,748 [INFO] Model 11 epoch's saved
+2026-05-14 18:05:46,385 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b3.ns_jft_in1k)
+2026-05-14 18:05:46,420 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b3.ns_jft_in1k)
+2026-05-14 18:05:46,964 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b3.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 18:05:46,991 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b3.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 18:05:46,993 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-14 18:05:47,158 [INFO] HTTP Request: GET https://huggingface.co/api/models/timm/tf_efficientnet_b3.ns_jft_in1k/xet-read-token/c535b7f55accd867106cecfa1c96ac984b8348fe "HTTP/1.1 200 OK"
+2026-05-14 18:05:50,621 [INFO] [timm/tf_efficientnet_b3.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 18:05:50,629 [INFO] [timm/tf_efficientnet_b3.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 18:05:50,644 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 18:05:50,652 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 18:05:50,665 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 18:05:50,674 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 18:05:52,300 [INFO] Training started
+2026-05-14 18:05:52,302 [INFO] Epoch: [1  / 100]
+2026-05-14 18:17:22,984 [INFO] F1-micro: 0.1195, F1-macro: 0.0885, TrainLoss: 0.1729, ValidLoss: 0.1490, Threshold: 0.30, LR: 0.0002
+2026-05-14 18:17:23,520 [INFO] Model 1 epoch's saved
+2026-05-14 18:17:23,520 [INFO] Model 1 epoch's saved
+2026-05-14 18:17:23,524 [INFO] Epoch: [2  / 100]
+2026-05-14 18:19:46,802 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b3.ns_jft_in1k)
+2026-05-14 18:19:47,371 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b3.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 18:19:47,374 [INFO] [timm/tf_efficientnet_b3.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 18:19:47,382 [INFO] Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b3.ns_jft_in1k)
+2026-05-14 18:19:47,402 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 18:19:47,428 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 18:19:47,895 [INFO] HTTP Request: HEAD https://huggingface.co/timm/tf_efficientnet_b3.ns_jft_in1k/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-05-14 18:19:47,898 [INFO] [timm/tf_efficientnet_b3.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2026-05-14 18:19:47,921 [INFO] Converted input conv conv_stem pretrained weights from 3 to 4 channel(s)
+2026-05-14 18:19:47,943 [INFO] Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2026-05-14 18:19:49,300 [INFO] Training started
+2026-05-14 18:19:49,302 [INFO] Epoch: [1  / 100]
+2026-05-14 18:31:24,902 [INFO] F1-micro: 0.1259, F1-macro: 0.0769, TrainLoss: 0.1745, ValidLoss: 0.1493, Threshold: 0.30, LR: 0.0002
+2026-05-14 18:31:25,486 [INFO] Model 1 epoch's saved
+2026-05-14 18:31:25,496 [INFO] Model 1 epoch's saved
+2026-05-14 18:31:25,502 [INFO] Epoch: [2  / 100]
+2026-05-14 18:43:26,722 [INFO] F1-micro: 0.1274, F1-macro: 0.1004, TrainLoss: 0.1442, ValidLoss: 0.1390, Threshold: 0.30, LR: 0.0001951301233713678
+2026-05-14 18:43:27,256 [INFO] Model 2 epoch's saved
+2026-05-14 18:43:27,300 [INFO] Model 2 epoch's saved
+2026-05-14 18:43:27,307 [INFO] Epoch: [3  / 100]
+2026-05-14 18:55:50,968 [INFO] F1-micro: 0.1463, F1-macro: 0.1323, TrainLoss: 0.1362, ValidLoss: 0.1322, Threshold: 0.30, LR: 0.00018099719094030728
+2026-05-14 18:55:51,547 [INFO] Model 3 epoch's saved
+2026-05-14 18:55:51,550 [INFO] Epoch: [4  / 100]
+2026-05-14 18:55:51,773 [INFO] Model 3 epoch's saved
+2026-05-14 19:07:24,139 [INFO] F1-micro: 0.1480, F1-macro: 0.1683, TrainLoss: 0.1302, ValidLoss: 0.1281, Threshold: 0.30, LR: 0.0001589846326031011
+2026-05-14 19:07:24,707 [INFO] Model 4 epoch's saved
+2026-05-14 19:07:24,707 [INFO] Model 4 epoch's saved
+2026-05-14 19:07:24,711 [INFO] Epoch: [5  / 100]
+2026-05-14 19:20:19,807 [INFO] F1-micro: 0.1664, F1-macro: 0.1924, TrainLoss: 0.1250, ValidLoss: 0.1214, Threshold: 0.30, LR: 0.00013124719094030727
+2026-05-14 19:20:20,334 [INFO] Model 5 epoch's saved
+2026-05-14 19:20:20,334 [INFO] Model 5 epoch's saved
+2026-05-14 19:20:20,338 [INFO] Epoch: [6  / 100]
+2026-05-14 19:34:04,714 [INFO] F1-micro: 0.1787, F1-macro: 0.1997, TrainLoss: 0.1211, ValidLoss: 0.1165, Threshold: 0.30, LR: 0.0001005
+2026-05-14 19:34:05,372 [INFO] Model 6 epoch's saved
+2026-05-14 19:34:05,378 [INFO] Epoch: [7  / 100]
+2026-05-14 19:34:05,399 [INFO] Model 6 epoch's saved
+2026-05-14 19:48:24,424 [INFO] F1-micro: 0.1848, F1-macro: 0.2119, TrainLoss: 0.1160, ValidLoss: 0.1126, Threshold: 0.30, LR: 6.975280905969274e-05
+2026-05-14 19:48:25,114 [INFO] Model 7 epoch's saved
+2026-05-14 19:48:25,114 [INFO] Model 7 epoch's saved
+2026-05-14 19:48:25,118 [INFO] Epoch: [8  / 100]
+2026-05-14 20:02:53,172 [INFO] F1-micro: 0.1941, F1-macro: 0.2298, TrainLoss: 0.1126, ValidLoss: 0.1098, Threshold: 0.30, LR: 4.201536739689893e-05
+2026-05-14 20:02:53,881 [INFO] Model 8 epoch's saved
+2026-05-14 20:02:53,881 [INFO] Model 8 epoch's saved
+2026-05-14 20:02:53,885 [INFO] Epoch: [9  / 100]
+2026-05-14 20:17:14,846 [INFO] F1-micro: 0.2010, F1-macro: 0.2290, TrainLoss: 0.1108, ValidLoss: 0.1078, Threshold: 0.30, LR: 2.0002809059692742e-05
+2026-05-14 20:17:14,850 [INFO] Epoch: [10 / 100]
+2026-05-14 20:17:15,492 [INFO] Model 9 epoch's saved
+2026-05-14 20:33:05,533 [INFO] F1-micro: 0.2050, F1-macro: 0.2364, TrainLoss: 0.1096, ValidLoss: 0.1069, Threshold: 0.30, LR: 5.8698766286322235e-06
+2026-05-14 20:33:06,221 [INFO] Model 10 epoch's saved
+2026-05-14 20:33:06,225 [INFO] Epoch: [11 / 100]
+2026-05-14 20:33:06,244 [INFO] Model 10 epoch's saved
+2026-05-14 20:48:03,837 [INFO] F1-micro: 0.1645, F1-macro: 0.1934, TrainLoss: 0.1233, ValidLoss: 0.1206, Threshold: 0.30, LR: 0.0002
+2026-05-14 20:48:03,844 [INFO] Epoch: [12 / 100]
+2026-05-14 21:02:50,659 [INFO] F1-micro: 0.1691, F1-macro: 0.2108, TrainLoss: 0.1219, ValidLoss: 0.1193, Threshold: 0.30, LR: 0.00019877498988921623
+2026-05-14 21:02:50,667 [INFO] Epoch: [13 / 100]
+2026-05-14 21:17:14,006 [INFO] F1-micro: 0.1693, F1-macro: 0.2058, TrainLoss: 0.1200, ValidLoss: 0.1156, Threshold: 0.30, LR: 0.0001951301233713678
+2026-05-14 21:17:14,010 [INFO] Epoch: [14 / 100]
+2026-05-14 21:30:33,653 [INFO] F1-micro: 0.1742, F1-macro: 0.2178, TrainLoss: 0.1174, ValidLoss: 0.1134, Threshold: 0.30, LR: 0.0001891551491567426
+2026-05-14 21:30:33,657 [INFO] Epoch: [15 / 100]
+2026-05-14 21:43:46,301 [INFO] F1-micro: 0.1775, F1-macro: 0.2339, TrainLoss: 0.1158, ValidLoss: 0.1101, Threshold: 0.30, LR: 0.00018099719094030728
+2026-05-14 21:43:46,306 [INFO] Epoch: [16 / 100]
+2026-05-14 21:57:03,305 [INFO] F1-micro: 0.1838, F1-macro: 0.2455, TrainLoss: 0.1131, ValidLoss: 0.1092, Threshold: 0.30, LR: 0.0001708571247280615
+2026-05-14 21:57:04,021 [INFO] Model 16 epoch's saved
+2026-05-14 21:57:04,025 [INFO] Epoch: [17 / 100]
+2026-05-14 22:11:01,045 [INFO] F1-micro: 0.1926, F1-macro: 0.2451, TrainLoss: 0.1110, ValidLoss: 0.1058, Threshold: 0.30, LR: 0.0001589846326031011
+2026-05-14 22:11:01,049 [INFO] Epoch: [18 / 100]
+2026-05-14 22:11:01,744 [INFO] Model 17 epoch's saved
+2026-05-14 22:23:53,285 [INFO] F1-micro: 0.1967, F1-macro: 0.2382, TrainLoss: 0.1079, ValidLoss: 0.1057, Threshold: 0.30, LR: 0.00014567205472408492
+2026-05-14 22:23:53,292 [INFO] Epoch: [19 / 100]
+2026-05-14 22:36:13,230 [INFO] F1-micro: 0.2019, F1-macro: 0.2533, TrainLoss: 0.1063, ValidLoss: 0.1030, Threshold: 0.30, LR: 0.00013124719094030727
+2026-05-14 22:36:13,777 [INFO] Model 19 epoch's saved
+2026-05-14 22:36:13,778 [INFO] Model 19 epoch's saved
+2026-05-14 22:36:13,781 [INFO] Epoch: [20 / 100]
+2026-05-14 22:48:35,546 [INFO] F1-micro: 0.2070, F1-macro: 0.2818, TrainLoss: 0.1038, ValidLoss: 0.0998, Threshold: 0.30, LR: 0.00011606522927150298
+2026-05-14 22:48:36,129 [INFO] Model 20 epoch's saved
+2026-05-14 22:48:36,129 [INFO] Model 20 epoch's saved
+2026-05-14 22:48:36,133 [INFO] Epoch: [21 / 100]
+2026-05-14 23:00:43,274 [INFO] F1-micro: 0.2026, F1-macro: 0.2716, TrainLoss: 0.1020, ValidLoss: 0.0986, Threshold: 0.30, LR: 0.0001005
+2026-05-14 23:00:43,278 [INFO] Epoch: [22 / 100]
+2026-05-14 23:12:11,572 [INFO] F1-micro: 0.2233, F1-macro: 0.2924, TrainLoss: 0.1003, ValidLoss: 0.0948, Threshold: 0.30, LR: 8.493477072849705e-05
+2026-05-14 23:12:12,159 [INFO] Model 22 epoch's saved
+2026-05-14 23:12:12,160 [INFO] Model 22 epoch's saved
+2026-05-14 23:12:12,163 [INFO] Epoch: [23 / 100]
+2026-05-14 23:24:50,626 [INFO] F1-micro: 0.2231, F1-macro: 0.2914, TrainLoss: 0.0971, ValidLoss: 0.0948, Threshold: 0.30, LR: 6.975280905969274e-05
+2026-05-14 23:24:50,630 [INFO] Epoch: [24 / 100]
+2026-05-14 23:37:03,088 [INFO] F1-micro: 0.2377, F1-macro: 0.3120, TrainLoss: 0.0954, ValidLoss: 0.0916, Threshold: 0.30, LR: 5.53279452759151e-05
+2026-05-14 23:37:03,625 [INFO] Model 24 epoch's saved
+2026-05-14 23:37:03,629 [INFO] Epoch: [25 / 100]
+2026-05-14 23:48:18,474 [INFO] F1-micro: 0.2308, F1-macro: 0.3151, TrainLoss: 0.0935, ValidLoss: 0.0895, Threshold: 0.30, LR: 4.201536739689893e-05
+2026-05-14 23:48:19,191 [INFO] Model 25 epoch's saved
+2026-05-14 23:48:19,198 [INFO] Epoch: [26 / 100]
+2026-05-15 00:00:39,118 [INFO] F1-micro: 0.2402, F1-macro: 0.3096, TrainLoss: 0.0923, ValidLoss: 0.0885, Threshold: 0.30, LR: 3.014287527193853e-05
+2026-05-15 00:00:39,125 [INFO] Epoch: [27 / 100]
+2026-05-15 00:00:39,894 [INFO] Model 26 epoch's saved
+2026-05-15 00:12:15,315 [INFO] F1-micro: 0.2354, F1-macro: 0.3051, TrainLoss: 0.0902, ValidLoss: 0.0882, Threshold: 0.30, LR: 2.0002809059692742e-05
+2026-05-15 00:12:15,318 [INFO] Epoch: [28 / 100]
+2026-05-15 00:12:16,115 [INFO] Model 27 epoch's saved
+2026-05-15 00:24:02,594 [INFO] F1-micro: 0.2425, F1-macro: 0.3168, TrainLoss: 0.0894, ValidLoss: 0.0873, Threshold: 0.30, LR: 1.1844850843257407e-05
+2026-05-15 00:24:03,206 [INFO] Model 28 epoch's saved
+2026-05-15 00:24:03,206 [INFO] Model 28 epoch's saved
+2026-05-15 00:24:03,210 [INFO] Epoch: [29 / 100]
+2026-05-15 00:35:33,059 [INFO] F1-micro: 0.2444, F1-macro: 0.3204, TrainLoss: 0.0891, ValidLoss: 0.0869, Threshold: 0.30, LR: 5.8698766286322235e-06
+2026-05-15 00:35:33,597 [INFO] Model 29 epoch's saved
+2026-05-15 00:35:33,668 [INFO] Model 29 epoch's saved
+2026-05-15 00:35:33,675 [INFO] Epoch: [30 / 100]
+2026-05-15 00:47:23,908 [INFO] F1-micro: 0.2462, F1-macro: 0.3182, TrainLoss: 0.0891, ValidLoss: 0.0859, Threshold: 0.30, LR: 2.225010110783803e-06
+2026-05-15 00:47:23,912 [INFO] Epoch: [31 / 100]
+2026-05-15 00:59:06,241 [INFO] F1-micro: 0.1946, F1-macro: 0.2671, TrainLoss: 0.1059, ValidLoss: 0.1044, Threshold: 0.30, LR: 0.0002
+2026-05-15 00:59:06,245 [INFO] Epoch: [32 / 100]
+2026-05-15 01:11:26,236 [INFO] F1-micro: 0.1968, F1-macro: 0.2663, TrainLoss: 0.1053, ValidLoss: 0.1002, Threshold: 0.30, LR: 0.00019969327470644626
+2026-05-15 01:11:26,239 [INFO] Epoch: [33 / 100]
+2026-05-15 01:23:44,377 [INFO] F1-micro: 0.1919, F1-macro: 0.2609, TrainLoss: 0.1034, ValidLoss: 0.1003, Threshold: 0.30, LR: 0.00019877498988921623
+2026-05-15 01:23:44,380 [INFO] Epoch: [34 / 100]
+2026-05-15 01:35:14,589 [INFO] F1-micro: 0.2050, F1-macro: 0.2787, TrainLoss: 0.1035, ValidLoss: 0.0993, Threshold: 0.30, LR: 0.00019725080707956884
+2026-05-15 01:35:14,596 [INFO] Epoch: [35 / 100]
+2026-05-15 01:47:09,652 [INFO] F1-micro: 0.2034, F1-macro: 0.2971, TrainLoss: 0.1015, ValidLoss: 0.0972, Threshold: 0.30, LR: 0.0001951301233713678
+2026-05-15 01:47:09,656 [INFO] Epoch: [36 / 100]
+2026-05-15 01:59:21,752 [INFO] F1-micro: 0.2007, F1-macro: 0.2719, TrainLoss: 0.1001, ValidLoss: 0.0978, Threshold: 0.30, LR: 0.00019242601348487304
+2026-05-15 01:59:21,756 [INFO] Epoch: [37 / 100]
+2026-05-15 02:11:12,583 [INFO] F1-micro: 0.2159, F1-macro: 0.2847, TrainLoss: 0.0992, ValidLoss: 0.0952, Threshold: 0.30, LR: 0.0001891551491567426
+2026-05-15 02:11:12,587 [INFO] Epoch: [38 / 100]
+2026-05-15 02:22:59,464 [INFO] F1-micro: 0.2150, F1-macro: 0.3039, TrainLoss: 0.0976, ValidLoss: 0.0945, Threshold: 0.30, LR: 0.00018533769635323217
+2026-05-15 02:22:59,468 [INFO] Epoch: [39 / 100]
+2026-05-15 02:34:41,534 [INFO] F1-micro: 0.2236, F1-macro: 0.3027, TrainLoss: 0.0967, ValidLoss: 0.0921, Threshold: 0.30, LR: 0.00018099719094030728
+2026-05-15 02:34:41,535 [INFO] Metric don't changed. Training stopped
+2026-05-15 02:34:41,536 [INFO] Metric don't changed. Training stopped
