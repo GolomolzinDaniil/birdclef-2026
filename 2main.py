@@ -69,7 +69,7 @@ for epoch in range(EPOCH):
 
     # train
     train_loss = 0.0
-    for xb,yb in tqdm(train_loader, desc='Train'):
+    for xb,yb in tqdm(train_dataset, desc='Train'):
 
         B, N, C, H, W = xb.shape
 
@@ -95,7 +95,7 @@ for epoch in range(EPOCH):
     targets, predicts = [], []
     with torch.no_grad():
 
-        for xb,yb in tqdm(valid_loader, desc='Valid'):
+        for xb,yb in tqdm(valid_dataset, desc='Valid'):
 
             B, N, C, H, W = xb.shape
 

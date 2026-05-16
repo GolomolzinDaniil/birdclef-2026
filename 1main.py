@@ -25,7 +25,6 @@ device = torch.device('cuda')
 def elapsed():
     return datetime.now(timezone(timedelta(hours=7))).strftime("%H:%M:%S")
 
-# os.makedirs('/kaggle/working/cache', exist_ok=True)
 
 batch_size = 8
 train_dataset = DataLoader(

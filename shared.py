@@ -244,3 +244,15 @@ class Data2(Data):
             
         return self._make_slides(y), label.float()
 
+
+class BirdModel(nn.Module):
+
+    def __init__(
+        self,
+        stage: int,
+    ):
+    super().__init__()
+
+    self.model = resnet18(weights=ResNet18_Weights.DEFAULT if stage == 1 else None)
+
+    
